@@ -1,4 +1,4 @@
-name: app
+name: node
 #The name is yours to choose
 type: nodejs
 #Type of the runtime
