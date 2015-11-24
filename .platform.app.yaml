@@ -4,7 +4,7 @@ type: nodejs
 #Type of the runtime
 web:
   commands:
-    start: "PM2_HOME=/app/run pm2 start index.js --no-daemon"
+    start: "node index.js"
     #command used to start your daemon. Needs to run in the foreground
     #in this setup you will find your application's logs
     #with stdout and stderr in /app/run/logsw
@@ -12,7 +12,6 @@ relationships:
   first_db: "db:mongodb"
 dependencies:
   nodejs:
-    pm2: "^0.15.10"
     gulp: "latest"
 hooks:
     #no need to run npm install. If a package.json is found, it runs 
