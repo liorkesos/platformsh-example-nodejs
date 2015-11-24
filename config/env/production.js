@@ -1,7 +1,11 @@
 'use strict';
+var config= require("platformsh").config();
+var db = config.relationships.first_db[0]
+process.env.MONGOHQ_URL = 'mongodb://'+ db["username"]+':' + db['password']+ "@" + db['host']+ ":" + db['port']+ '/' + db['path'];
+process.env.HOST ="http://mean-alfiuw6m6xzn6.eu.platform.sh/";
 
 module.exports = {
-  db: 'mongodb://' + (process.env.DB_PORT_27017_TCP_ADDR || 'localhost') + '/mean-prod',
+  db: process.env.MONGOHQ_URL,
   /**
    * Database options that will be passed directly to mongoose.connect
    * Below are some examples.
@@ -26,7 +30,7 @@ module.exports = {
     }
     */
   },
-  hostname: 'http://localhost:3000',
+  hostname: process.env.HOST,
   app: {
     name: 'MEAN - A Modern Stack - Production'
   },

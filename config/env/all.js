@@ -1,4 +1,8 @@
 'use strict';
+var config= require("platformsh").config();
+var db = config.relationships.first_db[0]
+process.env.MONGOHQ_URL = 'mongodb://'+ db["username"]+':' + db['password']+ "@" + db['host']+ ":" + db['port']+ '/' + db['path'];
+process.env.HOST ="http://mean-alfiuw6m6xzn6.eu.platform.sh/";
 
 var path = require('path'),
   rootPath = path.normalize(__dirname + '/../..');
