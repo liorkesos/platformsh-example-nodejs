@@ -33,11 +33,6 @@ relationships:
 dependencies:
   nodejs:
     pm2: "^0.15.10"
-hooks:
-    #no need to run npm install. If a package.json is found, it runs 
-    #automatically
-    build: |
-      grunt
 mounts:
   # these are the R/W mounts
   "/run": "shared:files/run"
