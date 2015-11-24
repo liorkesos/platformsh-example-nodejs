@@ -17,7 +17,9 @@ hooks:
     #no need to run npm install. If a package.json is found, it runs 
     #automatically
     build: |
-      UV_THREADPOOL_SIZE=1 gulp
+      gulp cssmin
+      gulp uglify
+    deploy: export NODE_ENV=production
 mounts:
   # these are the R/W mounts
   "/run": "shared:files/run"
