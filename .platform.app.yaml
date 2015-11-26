@@ -4,7 +4,7 @@ type: nodejs
 #Type of the runtime
 web:
   commands:
-    start: "node index.js --singleProcess"
+    start: "NODE_ENV=production node index.js --singleProcess"
     #command used to start your daemon. Needs to run in the foreground
     #in this setup you will find your application's logs
     #with stdout and stderr in /app/run/logsw
@@ -19,8 +19,6 @@ hooks:
     build: |
       gulp cssmin
       gulp uglify
-    deploy: |
-      export NODE_ENV=production
 mounts:
   # these are the R/W mounts
   "/run": "shared:files/run"
